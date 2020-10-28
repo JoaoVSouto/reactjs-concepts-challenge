@@ -15,7 +15,13 @@ function App() {
   }, []);
 
   async function handleAddRepository() {
-    // TODO
+    const { data } = await api.post('repositories', {
+      title: 'Unform',
+      url: 'https://github.com/Rocketseat/unform',
+      techs: ['React.js', 'React Native'],
+    });
+
+    setRepositories([...repositories, data]);
   }
 
   async function handleRemoveRepository(id) {
